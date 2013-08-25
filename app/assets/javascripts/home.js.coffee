@@ -5,15 +5,21 @@
 $ ->
 	$('a.getBtc').click ->
 		$.ajax({
-			url: "http://api.bitcoincharts.com/v1/weighted_prices.json",
+			url: "http://blockchain.info/stats?format=json?jsoncallback=ttt",
 			context: document.body,
 			type: "GET",
 			dataType: 'jsonp',
-			crossDomain: true,
-			jsonp: false
-			#success: (data) ->
-			#	console.log data
-		}).done (data) ->
-			returnData = data
-			console.log(returnData)
+			#contentType: 'text/plain'
+			#crossDomain: true,
+			#jsonp: false
+			success: (data) ->
+				#a = JSON.parse data
+				console.log data
+				#console.log eval("(" + data + ")")
+				#$('.displayRate').append(a)
+				#alert data
+		})#.done (data) ->
+			#returnData = data
+			#console.log(returnData)
 			#$('.displayRate').append(returnData)
+
